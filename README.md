@@ -11,7 +11,7 @@ make
 sudo make install
 ```
 
-##Customization
+## Customization
 You could customize your bar via editing `config.h` and then compiling i3sb.
 
 
