@@ -1,0 +1,10 @@
+#!/bin/sh
+#https://www.youtube.com/watch?v=XypZGzWOO-U ♻️
+
+
+capacity=$(cat /sys/class/power_supply/BAT0/capacity)
+status=$(cat /sys/class/power_supply/BAT0/status)
+[ $status = "Discharging" ] && [ $capacity -le 25 ] && warn="❗" 
+
+echo " $warn$(echo $status | sed "s/Charging/🔌/g;s/Discharging/🔋/g;s/Full/⚡/g;s/Unknown/?/g")$capacity% " 
+

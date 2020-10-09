@@ -1,0 +1,5 @@
+#!/bin/sh
+
+printf " 📦$(pacman -Qqu | grep -Fcv "[ignored]") "
+
+

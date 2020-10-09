@@ -1,0 +1,11 @@
+#!/bin/sh
+
+for f in $(ls Blocks) ; do
+  echo "cp Blocks/$f ${DESTDIR}${PREFIX}/bin/i3sb-$f"
+  cp Blocks/$f ${DESTDIR}${PREFIX}/bin/i3sb-$f
+  echo "chmod 755 ${DESTDIR}${PREFIX}/bin/i3sb-$f"
+  chmod 755 ${DESTDIR}${PREFIX}/bin/i3sb-$f
+done
+
+
+

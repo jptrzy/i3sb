@@ -10,8 +10,23 @@ cd i3sb
 make
 sudo make install
 ```
+**Past Installation**
+If you get i3sb installed you must edit i3 config file 
+from
+```
+bar {
+    status_command i3status
+}
+```
+to
+```
+bar {
+    status_command i3status
+}
+```
+and then reload i3 to see results.
 
 ## Customization
-You could customize your bar via editing `config.h` and then compiling i3sb.
+You could customize your bar via editing `config.h` and then compiling it.
 
 

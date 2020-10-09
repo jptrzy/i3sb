@@ -30,11 +30,8 @@ static const string BlockDir = "${HOME}/.config/i3/func/barfunc/";
 
 static const string Block[][3] = {
     //Command,                  Col          	Time
-    
-    {BlockDir+"packages",	"2",	        ""},
-
-    {BlockDir+"date",           "5",	        ""},
-    
+    {"i3sb-packages",           "2",	        ""},
+    {"i3sb-date",           "5",	        ""},
 };
 
 

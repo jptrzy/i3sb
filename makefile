@@ -30,6 +30,9 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < i3sb.1 > ${DESTDIR}${MANPREFIX}/man1/i3sb.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/i3sb.1
+	./blocksInstall
+
+	
 
 
 
