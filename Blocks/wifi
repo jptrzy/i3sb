@@ -1,5 +1,5 @@
 #!/bin/sh
 
-printf " $(nmcli device | grep "wifi" | sed 's/ \+/ /g' | cut -d" " -f 3-4) " | sed "s/ --//g;s/disconnected/⭕/g;s/connected/📶/g;s/unavailable/❓/g"
+printf " $(nmcli device | grep "wifi " | sed 's/ \+/ /g' | cut -d" " -f 3-4) " | sed "s/ --//g;s/disconnected/⭕/g;s/connected/📶/g;s/unavailable/❓/g"
 
 
