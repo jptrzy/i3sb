@@ -11,6 +11,7 @@ make
 sudo make install
 ```
 **Past Installation**
+
 If you get i3sb installed you must edit i3 config file 
 from
 ```
