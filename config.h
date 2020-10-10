@@ -4,7 +4,7 @@
 static const string Background = "#2a2f3a";
 static const string Foreground = "#ffffff";
 
-string Colors[] = {
+string Colors[16] = {
     "#303030",
     "#e1321a",
     "#6ab017",
@@ -32,7 +32,6 @@ static const string Block[][3] = {
     //Command,                  Col          	Time
     {"i3sb-nettraf",          	"5",	        ""},
     {"i3sb-wifi",          	    "1",	        ""},
-    {"i3sb-packages",           "2",	        ""},
     {"i3sb-date",          	    "3",	        ""},
     {"i3sb-battery",          	"4",	        ""},
 };
