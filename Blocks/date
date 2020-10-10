@@ -1,5 +1,5 @@
 #!/bin/sh
 
-printf " $(date +📅%D🕛%k:%M) " | sed "s/\//-/g"
+printf "$(date +📅%D🕛%k:%M)" | sed "s/\//-/g"
 
 

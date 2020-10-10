@@ -1,10 +1,10 @@
 #!/bin/sh
 #https://www.youtube.com/watch?v=XypZGzWOO-U ♻️
 
-[ ! -d  /sys/class/power_supply/BAT0 ] && printf " " && return 1
+[ ! -d  /sys/class/power_supply/BAT0 ] && printf "❓" && return 1
 capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 status=$(cat /sys/class/power_supply/BAT0/status)
 [ $status = "Discharging" ] && [ $capacity -le 25 ] && warn="❗" 
 p='%'
-printf " $warn$(echo $status | sed "s/Charging/🔌/g;s/Discharging/🔋/g;s/Full/⚡/g;s/Unknown/?/g")$capacity%s " "%" 
+printf "$warn$(printf $status | sed "s/Charging/🔌/g;s/Discharging/🔋/g;s/Full/⚡/g;s/Unknown/❓/g")$capacity%s" "$"
 

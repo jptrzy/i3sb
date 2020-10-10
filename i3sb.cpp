@@ -1,24 +1,22 @@
+/*
+TODO
+-Multi Threading for Block
+*/
 #include <iostream>
 #include <vector>
 #include <string>
 #include <cstdlib>
 #include <unistd.h>
-#include <iostream>
 #include <stdexcept>
 #include <stdio.h>
-#include <string>
-#include <sys/stat.h>
-#include <unistd.h>
-#include <string>
 #include <fstream>
-#include <unistd.h>
+#include <sys/stat.h>
 #include <sys/types.h>
 #include <pwd.h>
 
 using namespace std;
 
 #include "config.h"
-
 
 string exec(const char* cmd) {
     char buffer[128];
@@ -61,7 +59,7 @@ int main()
     }
 
 
-    cout << "{ \"version\": 1 }" << endl << "[" << endl << "[]," << endl;
+    cout << "{ \"version\": 1 }[[],";
     
     //cout << "{ \"full_text\": \"Test\", \"color\": \"#ffffff\", \"background\": \"#00ff00\", \"separator\": false, \"separator_block_width\": 0}," << endl;
 
@@ -72,19 +70,24 @@ int main()
     while(true){
         color = Background;
 
-        cout << "[" << endl;
+        cout << "[";
         for(int i = 0; i < blockLenght; i++) {
             newcolor = Colors[ stoi(Block[i][1]) ]; // ERROR replace stoi
-            cout << "{ \"full_text\": \"\", \"color\": \""+newcolor+"\", \"background\": \""+color+"\", \"separator\": false, \"separator_block_width\": 0}," << endl;
-            cout << "{ \"full_text\": \""+exec(Block[i][0].c_str())+"\", \"color\": \""+Foreground+"\", \"background\": \""+newcolor+"\", \"separator\": false, \"separator_block_width\": 0}," << endl;
+            cout << "{ \"full_text\": \"\", \"color\": \"" 
+            << newcolor << "\", \"background\": \"" 
+            << color <<"\", \"separator\": false, \"separator_block_width\": 0},{ \"full_text\": \" " 
+            << exec( (Block[i][0] + " | awk '{printf \"%s\", $0}' " ).c_str()) << " \", \"color\": \"" 
+            << Foreground << "\", \"background\": \"" 
+            << newcolor << "\", \"separator\": false, \"separator_block_width\": 0}," ;
             color = newcolor;
         }
         
-        cout << "{ \"full_text\": \"\", \"color\": \""+Background+"\", \"background\": \""+color+"\", \"separator\": false, \"separator_block_width\": 0},";
-        cout << "{ \"full_text\": \" \", \"color\": \""+Background+"\", \"background\": \""+Background+"\", \"separator\": false, \"separator_block_width\": 0}";
-        cout << "]," << endl;
-        
-        usleep(30*1000000);
+        cout << "{ \"full_text\": \"\", \"color\": \"" 
+        << Background << "\", \"background\": \"" 
+        << color << "\", \"separator\": false, \"separator_block_width\": 0}," << "{ \"full_text\": \" \", \"color\": \"" 
+        << Background << "\", \"background\": \"" 
+        << Background << "\", \"separator\": false, \"separator_block_width\": 0}" << "]," << endl;
+        usleep(4*1000000); //4 second
     }
     
 }
