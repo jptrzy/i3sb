@@ -1,0 +1,13 @@
+#!/bin/sh
+
+[ "$(pacmd list-sinks | grep muted)" = "	muted: yes" ] && printf "🔇" && return 0
+
+o=$(pacmd list-sinks | grep "front-left:")
+o=${o%%%*}
+o=${o##* }
+
+[ $(( $o <= 0 )) = 1 ] && printf "🔈" && return 0
+( [ $(( $o <= 50 )) = 1 ] && printf "🔉" ) || \
+( [ $(( $o > 100 )) = 1 ] && printf "❗" ) || printf "🔊" 
+
+printf "%3s" "$o"

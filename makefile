@@ -13,7 +13,7 @@ options:
 	@echo "CXX       = ${CXX}"
 
 i3sb: clean
-	${CXX} i3sb.cpp -o i3sb
+	${CXX} i3sb.cpp -pthread -o i3sb
 	@echo "${DESTDIR}${MANPREFIX}/man1/i3sb.1"
 	
 clean:
@@ -30,7 +30,11 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < i3sb.1 > ${DESTDIR}${MANPREFIX}/man1/i3sb.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/i3sb.1
-	./blocksInstall
+	./blocksInstall ${DESTDIR} ${PREFIX}
+
+uninstall:
+	rm "${DESTDIR}${PREFIX}/bin/i3sb"*
+	rm "${DESTDIR}${MANPREFIX}/man1/i3sb.1"
 
 	
 

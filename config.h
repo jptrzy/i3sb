@@ -1,11 +1,9 @@
 
-//Add pywal color location
+static const string BACKGROUND = "#2a2f3a";
+static const string FOREGROUND = "#ffffff";
 
-static const string Background = "#2a2f3a";
-static const string Foreground = "#ffffff";
-
-string Colors[16] = {
-    "#303030",
+string COLORS[16] = {
+    "#30,          03030",
     "#e1321a",
     "#6ab017",
     "#ffc005",
@@ -24,16 +22,13 @@ string Colors[16] = {
     "#a020f0"
 };
 
-static const bool PyWal = true;
+static const bool PYWAL = true;
 
-static const string BlockDir = "${HOME}/.config/i3/func/barfunc/";
-
-static const string Block[][3] = {
-    //Command,                  Col          	Time
-    {"i3sb-nettraf",          	"5",	        ""},
-    {"i3sb-wifi",          	    "1",	        ""},
-    {"i3sb-date",          	    "3",	        ""},
-    {"i3sb-battery",          	"4",	        ""},
+static const Block BLOCKS[] = {
+    //Command,                  ColNum         	PrinTime    Signal
+    {"i3sb-nettraf",          	5,	            2,          0},
+    {"i3sb-pulseaudio",         2,	            -1,         1},
+    {"i3sb-wifi",          	    1,	            60,         0},
+    {"i3sb-date",          	    3,	            60,         0},
+    {"i3sb-battery",          	4,	            10,         0},
 };
-
-
