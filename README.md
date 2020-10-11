@@ -29,7 +29,7 @@ bar {
 and then reload i3 to see results.
 
 **Manual/Git uninstall**
-'''
+```
 sudo make uninstall
 ```
 
