@@ -1,6 +1,6 @@
 #!/bin/sh
 
-[ ! -d  /sys/class/power_supply/BAT0 ] && printf "❓" && return 1
+[ ! -d  /sys/class/power_supply/BAT0 ] && printf "❓" && exit 1
 capacity=$(cat /sys/class/power_supply/BAT0/capacity)
 status=$(cat /sys/class/power_supply/BAT0/status)
 [ $status = "Discharging" ] && [ $capacity -le 25 ] && warn="❗" 
