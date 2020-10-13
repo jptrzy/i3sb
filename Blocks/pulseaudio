@@ -2,12 +2,14 @@
 
 [ "$(pacmd list-sinks | grep muted)" = "	muted: yes" ] && printf "🔇" && exit 0
 
-o=$(pacmd list-sinks | grep "front-left:")
-o=${o%%%*}
-o=${o##* }
+vol=$(pacmd list-sinks | grep "front-left:" )
+vol=${vol%%%*}
+vol=${vol##* }
 
-[ $(( $o <= 0 )) = 1 ] && printf "🔈" && exit 0
-( [ $(( $o <= 50 )) = 1 ] && printf "🔉" ) || \
-( [ $(( $o > 100 )) = 1 ] && printf "❗" ) || printf "🔊" 
+#o=$(pacmd list-sinks | grep "front-left:" | sed 's/.*\([0-9][0-9]%\).*/\1/;s/%//')
 
-printf "%3s" "$o"
+[ $(( $vol <= 0 )) = 1 ] && printf "🔈" && exit 0
+( [ $(( $vol <= 50 )) = 1 ] && printf "🔉" ) || \
+( [ $(( $vol > 100 )) = 1 ] && printf "❗" ) || printf "🔊" 
+
+printf "%3s" "$vol"

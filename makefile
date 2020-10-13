@@ -14,7 +14,7 @@ options:
 
 i3sb: clean
 	${CXX} i3sb.cpp -pthread -o i3sb
-	@echo "${DESTDIR}${MANPREFIX}/man1/i3sb.1"
+	strip i3sb
 	
 clean:
 	rm -f i3sb

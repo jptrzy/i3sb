@@ -114,7 +114,7 @@ void barstatusloop(){
 }
 
 void execblock(int id){ //Update Block Status
-    blockstatus[id] = exec( ( BLOCKS[id].command + (string)" | awk '{printf \"%s\", $0}' " ).c_str() );
+    blockstatus[id] = exec( ( BLOCKS[id].command + (string)" |  tr '\n' ' ' " ).c_str() );
     toprint = true;
 }
 
