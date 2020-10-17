@@ -1,18 +1,13 @@
 /*
 TODO:
 -add pywal color location
--remove all .c_str()
 */
 #include <iostream> //cout
 #include <signal.h> //signal()
 #include <unistd.h> //sleep()
-#include <string.h> //string
 
-#include <iostream>
 #include <vector>
-#include <string>
 #include <cstdlib>
-#include <unistd.h>
 #include <stdexcept>
 #include <stdio.h>
 #include <fstream>
@@ -24,13 +19,12 @@ TODO:
 using namespace std;
 
 
-
 //Define Varibles Types
 typedef struct {
 	const char *command;
-	int colornum;
-	int printime;
-	int signal;
+	short colornum;
+	short printime;
+	short signal;
 } Block;
 
 
@@ -114,7 +108,7 @@ void barstatusloop(){
 }
 
 void execblock(int id){ //Update Block Status
-    blockstatus[id] = exec( ( BLOCKS[id].command + (string)" |  tr '\n' ' ' " ).c_str() );
+    blockstatus[id] = exec( BLOCKS[id].command );
     toprint = true;
 }
 
