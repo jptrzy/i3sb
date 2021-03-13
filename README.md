@@ -1,5 +1,5 @@
 # i3sb
-I3 Simple Bar is as in the name, simple bar to i3 window manager, with some pywal suport.
+I3wm Simple Bar is as in the name, simple bar for i3 window manager, with some pywal support.
 
 ## Installation
 
@@ -16,15 +16,11 @@ sudo make install
 If you get i3sb installed you must edit i3 config file 
 from
 ```
-bar {
-    status_command i3status
-}
+status_command i3status
 ```
 to
 ```
-bar {
-    status_command i3status
-}
+status_command i3sb
 ```
 and then reload i3 to see results.
 
