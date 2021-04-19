@@ -1,7 +1,3 @@
-/*
-TODO:
--add pywal color location
-*/
 #include <iostream> //cout
 #include <signal.h> //signal()
 #include <unistd.h> //sleep()
@@ -100,7 +96,7 @@ void barstatusloop(){
     while(running){
         blockschecktime();
         if(toprint){
-            oldprintstatus();
+            printstatus();
             toprint=false;
         }
         sleep(1);
@@ -113,15 +109,16 @@ void execblock(int id){ //Update Block Status
 }
 
 void printstatus(){
-    cout << "[{ \"full_text\": \" ";
+    cout << "[{ \"full_text\": \"" << DEL;
 
     for(int i = 0; i < blockscount; i++) {
-        cout << blockstatus[i] << " ";
+        cout << blockstatus[i] << DEL;
     }
 
     cout << "\", \"separator\": false, \"separator_block_width\": 0}]," << endl;
 }
 
+/*
 void oldprintstatus(){
     string newcolor;
     string color = BACKGROUND;
@@ -165,6 +162,7 @@ void loadpywalcolors(){
         }
     }
 }
+*/
 
 void blockschecktime(){
     for(int i = 0; i < blockscount; i++) {
@@ -182,7 +180,7 @@ int main(int argc, char** argv){
     signal(SIGINT, terminalhandler);
     signal(SIGTERM, terminalhandler);
 	
-    if(PYWAL){ loadpywalcolors(); }
+    //if(PYWAL){ loadpywalcolors(); }
 
     cout << "{ \"version\": 1 }[[],";
     for(int i = 0; i < blockscount; i++) {

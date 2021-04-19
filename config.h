@@ -1,9 +1,10 @@
 
+/*
 static const string BACKGROUND = "#2a2f3a";
 static const string FOREGROUND = "#ffffff";
 
 string COLORS[16] = {
-    "#30,          03030",
+    "#303030",
     "#e1321a",
     "#6ab017",
     "#ffc005",
@@ -22,13 +23,13 @@ string COLORS[16] = {
     "#a020f0"
 };
 
-static const bool PYWAL = true;
+static const bool PYWAL = false;
+*/
+
+static const string DEL = " | ";
 
 static const Block BLOCKS[] = {
     //Command,                  ColNum         	PrinTime    Signal
-    {"i3sb-nettraf",          	5,	            2,          0},
     {"i3sb-pulseaudio",         2,	            -1,         1},
-    {"i3sb-wifi",          	    1,	            60,         0},
     {"i3sb-date",          	    3,	            60,         0},
-    {"i3sb-battery",          	4,	            10,         0},
 };
