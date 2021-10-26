@@ -1,15 +1,13 @@
 #!/bin/sh
 
-[ "$(pacmd list-sinks | grep muted)" = "	muted: yes" ] && printf "🔇" && exit 0
+[ "$(pactl list sinks | grep Mute)" = "	Mute: yes" ] && printf "🔇" && exit 0
 
-vol=$(pacmd list-sinks | grep "front-left:" )
+vol=$(pactl list sinks | grep "Volume: front-left" )
 vol=${vol%%%*}
 vol=${vol##* }
-
-#o=$(pacmd list-sinks | grep "front-left:" | sed 's/.*\([0-9][0-9]%\).*/\1/;s/%//')
 
 [ $(( $vol <= 0 )) = 1 ] && printf "🔈" && exit 0
 ( [ $(( $vol <= 50 )) = 1 ] && printf "🔉" ) || \
 ( [ $(( $vol > 100 )) = 1 ] && printf "❗" ) || printf "🔊" 
 
-printf "%3s" "$vol"
+printf "%3s" "$vol%"

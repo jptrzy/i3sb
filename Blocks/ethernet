@@ -1,0 +1,2 @@
+#!/bin/sh
+[ $(cat /sys/class/net/enp4s0/carrier) == 1 ] && printf "%s" "🔌 ✅ " || printf "%s" "🔌 ❌ "

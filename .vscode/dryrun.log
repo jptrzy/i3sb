@@ -1,0 +1,9 @@
+make --dry-run --keep-going --print-directory
+make: Entering directory '/home/jptrzy/Builds/i3sb-cc/i3sb-cc'
+echo i3sb build options:
+echo "LDFLAGS =  "
+echo "CC      = c99"
+rm -f i3sb
+c99 -o i3sb i3sb.c  
+make: Leaving directory '/home/jptrzy/Builds/i3sb-cc/i3sb-cc'
+ 

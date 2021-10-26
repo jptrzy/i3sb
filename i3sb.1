@@ -1,16 +1,34 @@
 .\" Manpage for i3sb.
 .\" Contact jptrzy@gmail.com to correct errors or typos.
-.TH man 1 "10 October 2020" "VERSION" "i3sb man page"
+.TH I3SB 1 "26 October 2021" "VERSION" "User Manuals"
+
 .SH NAME
-i3sb \- create a new LDAP user 
+i3sb \- simple bar for i3 window manager.
+
 .SH SYNOPSIS
 i3sb [OPTIONS]
-.SH DESCRIPTION
-i3sb is simple bar for i3 window manager.
+
+.\".SH DESCRIPTION
+.\"i3sb is simple bar for i3 window manager.
 .\".SH OPTIONS
-.\"The i3sb does not take any options. However, you can supply username.
-.\".SH SEE ALSO
-.\"useradd(8), passwd(5), i3sb.debian(8) 
+.\"The i3sb does not take any options.
+
+.SH CUSTOMIZATION
+i3sb can be customized by creating a custom config.h and (re)compiling the source code. This keeps it fast, secure and simple.
+
+.SH SIGNALING CHANGES
+You can reload status of exact block independently on time using Unix Signals.
+
+To use this, you need first change signal of block (that you want to update) in 
+.B config.h.
+Choose a number between 0 and 30, but mind it that 0 is a default number. Next you need to run
+.B """kill -34+<block signal> $(pidof i3sb)""
+to reloade it.
+
+This can be useful with block that display audio volume, and you want to reload it after pressing volume up button.
+
+.SH SEE ALSO
+notify-send(1)
 .\".SH BUGS
 .\"No known bugs.
 .SH AUTHOR

@@ -1,35 +1,14 @@
 
-/*
-static const string BACKGROUND = "#2a2f3a";
-static const string FOREGROUND = "#ffffff";
+#define STATUS_LENGTH	64
 
-string COLORS[16] = {
-    "#303030",
-    "#e1321a",
-    "#6ab017",
-    "#ffc005",
-    "#004f9e",
-    "#ec0048",
-    "#2aa7e7",
-    "#f2f2f2",
-
-    "#5d5d5d",
-    "#e1321a",
-    "#7bc91f",
-    "#ffd00a",
-    "#0071ff",
-    "#ff1d62",
-    "#4bb8fd",
-    "#a020f0"
-};
-
-static const bool PYWAL = false;
-*/
-
-static const string DEL = " | ";
+char* SEPARATOR_SYMBOL = " | ";
 
 static const Block BLOCKS[] = {
-    //Command,                  ColNum         	PrinTime    Signal
-    {"i3sb-pulseaudio",         2,	            -1,         1},
-    {"i3sb-date",          	    3,	            60,         0},
+	//Command,			PrintTime,	Signal
+	//{"/home/jptrzy/Builds/i3sb-cc/i3sb-cc/test", -1 , 2},
+	{"i3sb-pulseaudio", -1,			1},
+	{"i3sb-date",		60,			0},
+	{"i3sb-battery",	-1,			0},
 };
+
+static const int BLOCKS_SIZE = LEN(BLOCKS);
