@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# 🎤🎙️
+
+CURRENT_SOURCE=$(pactl info | grep "Default Source" | cut -f3 -d" ")
+
+(pactl list sources | grep -A 10 $CURRENT_SOURCE | grep -q "Mute: yes") && printf "❌ " && exit 0
+printf "🎤 "

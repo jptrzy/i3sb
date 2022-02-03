@@ -1,7 +1,7 @@
 .POSIX:
 
 # i3sb version
-VERSION = 2.0.0
+VERSION = 2.0.1
 
 # paths
 PREFIX = /usr/local
@@ -11,6 +11,9 @@ BLOCKS = Blocks
 
 LIBS = -pthread
 SBLDFLAGS = $(LIBS) $(LDFLAGS)\
+
+#You need to use "gcc" to propertly compile signals library; I don't know why.
+CC=gcc
 
 all: options i3sb
 

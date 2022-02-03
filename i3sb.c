@@ -6,11 +6,6 @@
 #include <string.h>
 #include <signal.h> 
 
-#define WAITING_FOR_REQUEST 1
-#define socket_status(a) WAITING_FOR_REQUEST
-
-
-
 /* macros */
 #define MIN(a, b)               ((a) < (b) ? (a) : (b))
 #define MAX(a, b)               ((a) < (b) ? (b) : (a))
@@ -129,8 +124,8 @@ void setup_signals(){
 	// sa.sa_handler = block_signal;
 	// sigaction(35, &sa, 0);
 
-	for(int i=0; i <= 30; i++){
-        signal(SIGTERM+i, block_signal);
+	for(int i=SIGRTMIN; i <= SIGRTMAX; i++){
+        signal(i, block_signal);
     }
 }
 
