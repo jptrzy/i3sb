@@ -1,7 +1,7 @@
 .POSIX:
 
 # i3sb version
-VERSION = 2.0.1
+VERSION = 3.0.0
 
 # paths
 PREFIX = /usr/local
@@ -9,21 +9,13 @@ MANPREFIX = $(PREFIX)/share/man
 BLOCKS = Blocks
 
 
-LIBS = -pthread
-SBLDFLAGS = $(LIBS) $(LDFLAGS)\
-
-#You need to use "gcc" to propertly compile signals library; I don't know why.
-CC=gcc
-
 all: options i3sb
 
 options:
 	@echo i3sb build options:
-	@echo "LDFLAGS = $(SBLDFLAGS)"
-	@echo "CC      = $(CC)"
 
 i3sb: clean
-	$(CC) -o $@ i3sb.c $(SBLDFLAGS)
+	go build 
 	strip $@
 	
 clean:

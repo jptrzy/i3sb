@@ -10,3 +10,7 @@ i3sb
 
 # Local History for Visual Studio Code
 .history/
+
+# Added by cargo
+
+/target
