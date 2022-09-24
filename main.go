@@ -20,6 +20,7 @@ import (
 var (
 	CONFIG_PATH = os.Getenv("HOME") + "/.config/i3sb"
 
+	sepp         string = " | "
 	blocks       []*Block
 	dirty        bool      = true
 	await_stoper chan bool = make(chan bool)
@@ -63,7 +64,7 @@ func (b *Block) update() {
 func handleSignal(sig os.Signal) {
 	//	syscall.Signal(45)
 
-	fmt.Println("$", sig)
+	// fmt.Println("$", sig)
 
 	switch sig {
 	case syscall.SIGCHLD:
@@ -96,10 +97,10 @@ func printTop() {
 
 func printBar() {
 	fmt.Print(`[{ "full_text": "`)
-	fmt.Print(" | ")
+	fmt.Print(sepp)
 	for _, b := range blocks {
 		fmt.Print(b.Out)
-		fmt.Print(" | ")
+		fmt.Print(sepp)
 	}
 	fmt.Println(`", "separator": false, "separator_block_width": 0}],`)
 }
@@ -124,6 +125,8 @@ func tryLoadConfig() {
 			b.Out = ""
 			blocks = append(blocks, &c.Blocks[i])
 		}
+
+		sepp = c.Sepp
 
 		//blocks = c.Blocks
 	} else {
