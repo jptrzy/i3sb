@@ -1,0 +1,8 @@
+{
+	"sepperator" : " | ",
+    "blocks" : [
+        {"cmd":"i3sb-pulseaudio-source",	"sig":35, "start":-1},
+        {"cmd":"i3sb-pulseaudio",			"sig":35, "start":-1},
+        {"cmd":"i3sb-date",					"sig":34, "start":2}
+    ]
+}

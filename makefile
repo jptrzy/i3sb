@@ -22,6 +22,8 @@ clean:
 	rm -f i3sb
 
 install: all install_blocks
+#	mkdir -p ${HOME}/.config/i3sb
+#	cp config.json ${HOME}/.config/i3sb/config.json
 	mkdir -p ${DESTDIR}${PREFIX}/bin
 	cp -f i3sb ${DESTDIR}${PREFIX}/bin
 	chmod 755 ${DESTDIR}${PREFIX}/bin/i3sb
